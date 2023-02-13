@@ -30,5 +30,8 @@ namespace BuscaCEP
 
         [JsonProperty("gia")]
         public string Gia { get; set; }
+
+        [JsonProperty("ddd")]
+        public string Ddd { get; set; }
     }
 }

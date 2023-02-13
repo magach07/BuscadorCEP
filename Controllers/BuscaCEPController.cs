@@ -20,8 +20,17 @@ namespace BuscaCEP.Controllers
         }
 
         [HttpPost]
-        [Route("/GetEndereco/")]
-        public async Task<EnderecoReturn> GetEnderecoFromCEP (string cep)
+        [Route("/GetEnderecoWithRefit/")]
+        public async Task<EnderecoReturn> GetEnderecoFromCEP(string cep)
+        {
+            var end = await _buscaCEPRepository.ViaCEPService(cep);
+
+            return end;
+        }
+
+        [HttpPost]
+        [Route("/GetEnderecoWithoutRefit/")]
+        public async Task<EnderecoReturn> GetEnderecoFromCEPWithRefit(string cep)
         {
             var end = await _buscaCEPRepository.GetEnderecoByCEP(cep);
 
